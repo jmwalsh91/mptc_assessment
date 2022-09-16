@@ -16,6 +16,8 @@ run "yarn dev" to start dev server.
 You can "log in" with the name: "Jennifer" and no password--make sure to check "staff" to ensure the correct table is queried. 
 
 I continued after my timer went off, and did further work in another repository that will be linked here. 
+## Further work:
+https://github.com/jmwalsh91/Mptc_Afterhours1
 
 ## Where the time ran out:
 
