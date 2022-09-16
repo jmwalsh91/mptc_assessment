@@ -18,6 +18,7 @@ function Login({}: Props) {
   }
   async function handleLogin() {
     const user = await login(name, checked);
+    console.log(user)
     if (user && user.name) {
       dispatch(user.name, user.role);
       navigate("/dash");

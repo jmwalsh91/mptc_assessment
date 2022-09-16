@@ -1,4 +1,3 @@
-import React from 'react'
 import { StudentData } from '~/services/sb'
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
 
 function StudentRow( {student}: Props) {
   return (
-    <tr>
+    <tr key={student.name}>
         <td>{student.name}</td>
         <td>{student.app_submitted}</td>
         <td>{student.app_approved}</td>

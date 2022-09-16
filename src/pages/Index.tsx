@@ -5,7 +5,9 @@ type Props = {};
 
 export default function Index({}: Props) {
   return (
+    <>
 <AuthPage/>
+    </>
   );
 }
 

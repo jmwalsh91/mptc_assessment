@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import type {PostgrestResponse, PostgrestError} from '@supabase/supabase-js'
+import { UserContext } from '~/components/contexts/UserProvider'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
@@ -40,18 +41,29 @@ export async function getAllStudents(): Promise< StudentData[]> {
     
 }
 
-export async function login(name: string, isStaff: boolean) {
+export async function login(name: string, isStaff: boolean): Promise<UserContext> {
+    let user
     if (isStaff) {
-        const user =  await dbClient
+        const {data, error} =  await dbClient
 .from("Staff")
 .select()
 .match({name: name})
-return user? user : null
+if (error) {
+    throw error
+}
+console.log(data)
+return user = data[0] as UserContext
     } else if (!isStaff) {
- let user = await dbClient
+ const {data, error} = await dbClient
  .from("Students")
  .select()
 .match({name: name})
- return user? user : null
+if (error ) {
+    throw error
 }
+console.log(data)
+return user = data[0] as UserContext
+}
+    
+    return user as unknown as UserContext
 }
