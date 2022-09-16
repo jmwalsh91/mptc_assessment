@@ -4,7 +4,7 @@ import type {PostgrestResponse, PostgrestError} from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
 
-const dbClient = createClient(supabaseUrl, supabaseKey)
+export const dbClient = createClient(supabaseUrl, supabaseKey)
 export interface StudentData {
     name: string
     app_submitted: boolean
@@ -15,8 +15,9 @@ export interface StudentData {
     pgm_chosen: number
     pgm_approved: boolean
     app_status_sent: boolean
-    pgm_status_approved?: boolean
+    pgm_status_sent: boolean
 }
+
 export async function createStudent(name: string ) {
     const { data, error } = await dbClient
         .from('Students')
@@ -24,4 +25,33 @@ export async function createStudent(name: string ) {
             { name: name, app_submitted: false, app_approved: "pending", mtg_sched: false, mtg_done: false, pgm_selected: false, pgm_chosen: 0, pgm_approved: false, app_status_sent: false }
         )
     return { data, error }
+}
+
+export async function getAllStudents(): Promise< StudentData[]> {
+    let studentArr = []
+    const { data, error } = await dbClient
+        .from('Students')
+        .select()
+    if (error) {
+        throw error
+    }
+   
+       return studentArr = data as StudentData[]
+    
+}
+
+export async function login(name: string, isStaff: boolean) {
+    if (isStaff) {
+        const user =  await dbClient
+.from("Staff")
+.select()
+.match({name: name})
+return user? user : null
+    } else if (!isStaff) {
+ let user = await dbClient
+ .from("Students")
+ .select()
+.match({name: name})
+ return user? user : null
+}
 }

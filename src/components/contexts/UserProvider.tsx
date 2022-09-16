@@ -8,7 +8,7 @@ export interface DispatchValue {
     setName: React.Dispatch<React.SetStateAction<string>>
 }
 export interface UserContext {
-    role: string | undefined
+    role: "Adv" | "Student" | "Reg" | undefined
     name: string | undefined
 }
 export const UserContext = React.createContext<UserContext>({role: undefined!, name: undefined!})

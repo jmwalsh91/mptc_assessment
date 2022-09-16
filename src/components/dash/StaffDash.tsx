@@ -10,8 +10,8 @@ function StaffDash({}: Props) {
     const role = React.useContext(UserContext).role
   return (
     <Container fluid>
-        {role === 'adv' ? <AdvDash/> : null}
-        {role === 'reg' ? <RegDash/> : null}
+        {role === 'Adv' ? <AdvDash/> : null}
+        {role === 'Reg' ? <RegDash/> : null}
     </Container>
   )
 }
