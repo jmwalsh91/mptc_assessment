@@ -7,7 +7,9 @@ type Props = {
 
 function PaperCentered({children}: Props) {
   return (
-    <Paper>
+    <Paper withBorder shadow="xl" sx={{
+        width: '40rem'
+    }}>
         <Center>
             {children}
         </Center>
