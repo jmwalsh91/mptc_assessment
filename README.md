@@ -5,9 +5,13 @@
 ## Instructions
 
 Clone repository.
+
 yarn install.
+
 touch/create .env , paste provided env vars into file and save.
+
 run "yarn dev" to start dev server.
+
 
 You can "log in" with the name: "Jennifer" and no password--make sure to check "staff" to ensure the correct table is queried. 
 
