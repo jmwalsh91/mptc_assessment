@@ -1,3 +1,4 @@
+import { Title } from '@mantine/core'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -10,7 +11,7 @@ import { queryClient } from './services/QueryClient'
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div>App goes here</div>
+      <Title> MPTC ASSESSMENT </Title>
       <UserProvider>
         <BrowserRouter>
           <Routes>

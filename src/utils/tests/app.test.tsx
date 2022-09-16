@@ -9,6 +9,6 @@ import { render } from './index'
 describe('landing page', () => {
   it('should render the landing page', () => {
     render(<App />)
-    expect(screen.getByText('App goes here')).toBeInTheDocument()
+    expect(screen.getByText('MPTC ASSESSMENT')).toBeInTheDocument()
   })
 })
