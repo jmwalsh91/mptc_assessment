@@ -9,7 +9,7 @@ function Dashboard({}: Props) {
   const role = React.useContext(UserContext).role
   return (
     <>
-    {role === 'student' ? <StudentDash/> : <StaffDash/>}
+    {role === 'Student' ? <StudentDash/> : <StaffDash/>}
  </>
   )
 }

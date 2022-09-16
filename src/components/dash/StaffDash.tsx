@@ -6,7 +6,7 @@ import RegDash from './RegDash'
 
 type Props = {}
 
-function StaffDash({}: Props) {
+export default function StaffDash({}: Props) {
     const role = React.useContext(UserContext).role
   return (
     <Container fluid>
@@ -16,4 +16,3 @@ function StaffDash({}: Props) {
   )
 }
 
-export default StaffDash
