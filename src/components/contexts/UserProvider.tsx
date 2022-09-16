@@ -3,15 +3,26 @@ import React from 'react'
 type Props = {
     children: React.ReactNode
 }
-
-const UserContext = React.createContext({role: null, name: null})
+export interface DispatchValue {
+    setRole: React.Dispatch<React.SetStateAction<string>>
+    setName: React.Dispatch<React.SetStateAction<string>>
+}
+export interface UserContext {
+    role: string | undefined
+    name: string | undefined
+}
+export const UserContext = React.createContext<UserContext>({role: undefined!, name: undefined!})
+export const UserDispatcher = React.createContext<DispatchValue>(undefined!)
+/**
+ * Provide ways to set and consume user data
+ */
 function UserProvider({children}: Props) {
-    const [role, setRole] = React.useState(null)
-    const [name, setName] = React.useState(null)
-    const UserDispatcher = React.createContext({setRole, setName})
+    const [role, setRole] = React.useState("none")
+    const [name, setName] = React.useState("none")
+   
     
     const value = {role, name}
-    const dispatchValue = {setRole, setName}
+    const dispatchValue = {setRole: setRole, setName: setName}
 
 
 
