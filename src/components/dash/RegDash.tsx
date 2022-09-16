@@ -1,11 +1,9 @@
-import StudentList from "./studentList/StudentList";
+import StudentList from './studentList/StudentList'
 
-type Props = {};
-
-export default function RegDash({}: Props) {
+export default function RegDash() {
   return (
     <>
       <StudentList />
     </>
-  );
+  )
 }

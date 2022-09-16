@@ -1,14 +1,13 @@
-import { Button, Paper, ScrollArea, Skeleton, Table } from "@mantine/core";
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { getAllStudents, StudentData } from "~/services/sb";
-import StudentRow from "./StudentRow";
+import { Button, ScrollArea, Skeleton, Table } from '@mantine/core'
+import { useQuery } from '@tanstack/react-query'
 
-type Props = {};
+import StudentRow from './StudentRow'
 
-function StudentList({}: Props) {
-  const { data, status } = useQuery(["prefetchStudents"], getAllStudents);
-  if (status === "loading") {
+import { StudentData, getAllStudents } from '~/services/sb'
+
+function StudentList() {
+  const { data, status } = useQuery(['prefetchStudents'], getAllStudents)
+  if (status === 'loading') {
     return (
       <div>
         <Skeleton key="1" height={50} />
@@ -16,16 +15,16 @@ function StudentList({}: Props) {
         <Skeleton key="3" height={50} />
         <Skeleton key="4" height={50} />
         <Skeleton key="5" height={50} />
-        <Skeleton  key="6"height={50} />
+        <Skeleton key="6" height={50} />
         <Skeleton key="7" height={50} />
         <Skeleton key="8" height={50} />
         <Skeleton key="9" height={50} />
         <Skeleton key="10" height={50} />
       </div>
-    );
+    )
   }
-  if (status === "error") {
-    return <div>Error</div>;
+  if (status === 'error') {
+    return <div>Error</div>
   }
 
   return (
@@ -33,7 +32,7 @@ function StudentList({}: Props) {
       <ScrollArea>
         <Table
           sx={{
-            border: "1px solid #eaeaea",
+            border: '1px solid #eaeaea',
           }}
         >
           <thead>
@@ -52,6 +51,7 @@ function StudentList({}: Props) {
           <tbody>
             {data[0].name &&
               data.map((oneStudent: StudentData) => (
+                // eslint-disable-next-line react/jsx-key
                 <StudentRow student={oneStudent} />
               ))}
           </tbody>
@@ -59,7 +59,7 @@ function StudentList({}: Props) {
       </ScrollArea>
       <Button> Do Action</Button>
     </div>
-  );
+  )
 }
 
-export default StudentList;
+export default StudentList

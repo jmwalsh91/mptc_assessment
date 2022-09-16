@@ -1,14 +1,9 @@
-import { Container, Paper } from "@mantine/core";
-import AuthPage from "./AuthPage";
+import AuthPage from './AuthPage'
 
-type Props = {};
-
-export default function Index({}: Props) {
+export default function Index() {
   return (
     <>
-<AuthPage/>
+      <AuthPage />
     </>
-  );
+  )
 }
-
-
